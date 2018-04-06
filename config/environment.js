@@ -46,6 +46,26 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
-
+  if (environment === 'development') {  
+    ENV.host = 'http://192.168.88.40:3000';
+  }
+  ENV['ember-simple-auth'] = {  
+    authorizer: 'authorizer:custom',
+    routeAfterAuthentication: '/',
+  };
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: ENV.host+'/authenticate',
+    identificationField: 'username',
+    passwordField: 'password',
+    tokenPropertyName: 'auth_token',
+    refreshTokenPropertyName: 'auth_token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+    headers: {},
+    refreshAccessTokens: true,
+    serverTokenRefreshEndpoint: ENV.host+'/authenticate',
+    tokenExpireName: 'exp',
+    refreshLeeway: 0,
+  };
   return ENV;
 };

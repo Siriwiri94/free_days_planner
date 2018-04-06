@@ -1,0 +1,24 @@
+ <div class="container">
+ {{#if session.isAuthenticated}}
+ <h1>Hiiii {{currentUser.user.username}} </h1>
+ {{else}}
+  <form {{action 'authenticate' on='submit'}}> 
+    <h4>Log In</h4> 
+    <div class="form-group">
+      <label for="identification">Email:</label>
+      {{input id='identification' value=identification}}
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      {{input id='password' value=password}}
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+        {{#if errorMessage}}
+          <div class="text-danger">Incorrect username or password</div>
+        {{/if}}
+    </form>
+  
+ {{/if}}
+ </div>
