@@ -1,0 +1,31 @@
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Employee</th>
+    <th>Start Day</th>
+    <th>End Day</th>
+    <th>State</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each data as |holiday|}}
+
+    <tr>
+        <td>
+          {{holiday.user.username}}
+      </td>
+      <td>
+        {{holiday.startDay}}
+      </td>
+      <td>
+          {{holiday.endDay}}
+      </td>
+      <td>
+          {{holiday.state}}
+      </td>
+    </tr>
+
+  {{/each}}
+  </tbody>
+</table> 
+{{yield}}

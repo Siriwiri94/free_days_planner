@@ -12,6 +12,12 @@ Router.map(function() {
     this.route('main_page');
   });
   this.route('main_page');
+  this.route('reserve');
+  this.route('admin_users');
+  this.route('admin_requests');
+  this.route('admin_others');
+  this.route('user_page');
+  this.route('tabs');
 });
 
 export default Router;

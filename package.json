@@ -19,25 +19,33 @@
   "devDependencies": {
     "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.4.5",
+    "bulma": "^0.5.3",
     "ember-ajax": "^3.0.0",
+    "ember-bulma": "^0.4.1",
     "ember-cli": "~3.0.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-bootstrap-sassy": "^0.5.8",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
+    "ember-cli-full-calendar": "^0.1.4",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-moment-shim": "^3.6.0",
     "ember-cli-qunit": "^4.1.1",
-    "ember-cli-sass": "^7.1.7",
+    "ember-cli-sass": "^6.2.0",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-font-awesome": "^4.0.0-rc.2",
+    "ember-fullcalendar": "^1.8.0",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-moment": "^7.6.0",
+    "ember-moment-transform": "^0.2.0",
     "ember-resolver": "^4.0.0",
     "ember-simple-auth": "^1.6.0",
     "ember-simple-auth-token": "^3.0.0",
@@ -48,5 +56,8 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "dependencies": {
+    "vue-bulma-tabs": "^1.1.2"
   }
 }

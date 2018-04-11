@@ -1,4 +1,4 @@
-<div class="container">
+
     {{#if session.isAuthenticated}}
      {{#if currentUser.user}}
       <h1>Welcome {{currentUser.user.username}}!!!!</h1>
@@ -6,9 +6,7 @@
         <div>Username: {{currentUser.user.username}}</div>
         <div>Name: {{currentUser.user.name}}</div>
         <div>Role: {{currentUser.user.role}}</div>
+        <div>Left: {{currentUser.user.days-left}} days</div>
     {{/if}}
-    {{else}}
-    <h1>You are not authorized</h1>
 {{/if}} 
-</div>
 {{outlet}}

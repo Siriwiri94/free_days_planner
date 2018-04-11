@@ -1,24 +1,21 @@
- <div class="container">
- {{#if session.isAuthenticated}}
- <h1>Hiiii {{currentUser.user.username}} </h1>
- {{else}}
-  <form {{action 'authenticate' on='submit'}}> 
-    <h4>Log In</h4> 
-    <div class="form-group">
-      <label for="identification">Email:</label>
+<div class="title has-text-centered">Free days planner</div>
+<form {{action 'authenticate' on='submit'}} class="box is-centered">
+  <div class="field columns is-centered">
+    <label class="column is-1">Username</label>
+    <div class="control column is-1">
       {{input id='identification' value=identification}}
     </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      {{input id='password' value=password}}
+  </div>
+  <div class="field columns is-centered">
+    <label class="column is-1">Password</label>
+    <div class="control column is-1">
+      {{input id='password' value=password type="password"}}
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Login</button>
-    </div>
-        {{#if errorMessage}}
-          <div class="text-danger">Incorrect username or password</div>
-        {{/if}}
-    </form>
-  
- {{/if}}
- </div>
+  </div>
+  <div class="control has-text-centered">
+    <button class="button is-primary is-rounded is-focused">Submit</button>
+  </div>
+  {{#if errorMessage}}
+    <div class="text-danger">Incorrect username or password</div>
+  {{/if}}
+</form>

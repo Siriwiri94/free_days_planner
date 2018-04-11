@@ -1,0 +1,6 @@
+{{#if currentUser.user}}
+    <h1 class="text-center title">New reservation</h1>
+{{else}}
+<h1 class="text-center text-danger font-italic"><u><i>You are not authorized</i></u></h1>
+{{/if}}
+{{outlet}}

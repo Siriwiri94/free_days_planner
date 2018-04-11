@@ -1,0 +1,6 @@
+{
+  "name": "free-days-planner",
+  "dependencies": {
+    "fullcalendar": "^3.9.0"
+  }
+}

@@ -14,16 +14,13 @@ export function initialize(instance) {
 
 export default Controller.extend({  
   session: service(),
-  identification: 'Prueba2',
-  password:'123456',
+  identification: 'siri',
+  password:'siri',
   actions: {
 
     authenticate() {
       const credentials = this.getProperties('identification', 'password'),authenticator = 'authenticator:jwt';
-      this.get('session').authenticate(authenticator, credentials).then(data => {console.log(data); return data}).catch((reason)=>{
-        console.error(reason);
-        this.set('errorMessage', reason.error || reason);
-      });
+      this.get('session').authenticate(authenticator, credentials);
     },
   }
 });
