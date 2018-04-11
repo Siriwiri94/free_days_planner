@@ -45,10 +45,11 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.host = 'https://freedays.herokuapp.com';
   }
   if (environment === 'development') {  
-    //ENV.host = 'http://192.168.88.40:3000';
-    ENV.host = 'https://freedays.herokuapp.com';    
+    ENV.host = 'http://192.168.88.40:3000';
+    //ENV.host = 'https://freedays.herokuapp.com';    
   }
   ENV['ember-simple-auth'] = {  
     authorizer: 'authorizer:custom',
