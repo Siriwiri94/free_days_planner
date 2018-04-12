@@ -1,8 +1,7 @@
-
-    {{#if session.isAuthenticated}}
-     {{#if currentUser.user}}
-      <h1>Welcome {{currentUser.user.username}}!!!!</h1>
-      <h3>These are your data</h3>
+{{#if session.isAuthenticated}}
+    {{#if currentUser.user}}
+        <h1>Welcome {{currentUser.user.username}}!!!!</h1>
+        <h3>These are your data</h3>
         <div>Username: {{currentUser.user.username}}</div>
         <div>Name: {{currentUser.user.name}}</div>
         <div>Role: {{currentUser.user.role}}</div>

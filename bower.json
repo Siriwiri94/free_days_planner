@@ -1,6 +1,8 @@
 {
   "name": "free-days-planner",
   "dependencies": {
-    "fullcalendar": "^3.9.0"
+    "fullcalendar": "^3.9.0",
+    "jquery-ui": "1.11.3",
+    "moment": "^2.22.0"
   }
 }
