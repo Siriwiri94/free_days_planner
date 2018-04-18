@@ -8,25 +8,23 @@
       
     </div>
     <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-item">
+      <div class="nav">
         {{#if currentUser.user}}
         {{#if currentUser.user.isAdmin}}
-            {{#link-to 'main_page' tagName="li"}}<a href="">Home</a>{{/link-to}}
-            {{#link-to 'admin_users' tagName="li"}}<a href="">Users</a>{{/link-to}}
-            {{#link-to 'admin_requests' tagName="li"}}<a href="">Requests</a>{{/link-to}}
-            {{#link-to 'admin_others' tagName="li"}}<a href="">Others</a>{{/link-to}}
-            {{#link-to 'main_page' tagName="li"}}<a href="">Calendar</a>{{/link-to}}
+            {{#link-to 'admin_users' tagName="a" class="navbar-item"}}<a href="">Users</a>{{/link-to}}
+            {{#link-to 'admin_requests' tagName="a" class="navbar-item"}}<a href="">Requests</a>{{/link-to}}
+            {{#link-to 'admin_others' tagName="a" class="navbar-item"}}<a href="">Others</a>{{/link-to}}
+            {{#link-to 'main_page' tagName="a" class="navbar-item"}}<a href="">Calendar</a>{{/link-to}}
             {{else}}
-            {{#link-to 'reserve' tagName="li"}}<a href="" class="">Reserve</a>{{/link-to}}
-            {{#link-to 'user_page' tagName="li"}}<a href="">User page</a>{{/link-to}}
+            {{#link-to 'reserve' tagName="a" class="navbar-item"}}<a href="" class="">Reserve</a>{{/link-to}}
         {{/if}}
         {{/if}}
         {{#if session.isAuthenticated}}
-          <li><a href="#" {{action 'invalidateSession'}} tagName="li">Logout</a></li>
+        {{#link-to 'login' tagName="a" class="navbar-item"}}<a href="#" {{action 'invalidateSession'}}>Logout</a>{{/link-to}}
       {{else}}
-      {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
+      {{#link-to 'login' tagName="a" class="navbar-item"}}<a href="#">Login</a>{{/link-to}}
       {{/if}}
-      </ul>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

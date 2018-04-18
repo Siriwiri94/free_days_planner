@@ -7,6 +7,8 @@ export default Route.extend(ApplicationRouteMixin, {
         this._super(...arguments);
         if (this.get('session.isAuthenticated')) {
             return this._loadCurrentUser();
+        }else{
+            this.transitionTo('login');
         }
     },
     sessionAuthenticated() {
@@ -17,7 +19,7 @@ export default Route.extend(ApplicationRouteMixin, {
     _loadCurrentUser() {
         return this.get('currentUser').load().then(user => {
             if (user.get('isAdmin')) {
-                this.transitionTo('main_page')
+                this.transitionTo('admin_requests')
             } else {
                 this.transitionTo('user_page')
             }

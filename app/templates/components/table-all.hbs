@@ -1,6 +1,7 @@
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
+    <th>Employee</th>
     <th>Start Day</th>
     <th>End Day</th>
     <th>Total Days</th>
@@ -10,8 +11,10 @@
   </thead>
   <tbody>
   {{#each data as |holiday|}}
-  {{#if holiday.isMe}}
     <tr>
+      <td>
+        {{holiday.user.username}}
+      </td>
       <td>
         {{moment-format holiday.startDay 'MM-DD-YYYY'}}
       </td>
@@ -22,13 +25,12 @@
         {{holiday.totalDays}}
       </td>
       <td>
-        {{holiday.vacationType.name}}   
+        {{holiday.vacationType.name}}
       </td>
       <td>
-        {{holiday.state}}<button class=" button is-danger is-pulled-right" {{action 'deleteHoliday' holiday}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        {{holiday.state}}
       </td>
     </tr>
-    {{/if}}
   {{/each}}
   </tbody>
 </table> 
