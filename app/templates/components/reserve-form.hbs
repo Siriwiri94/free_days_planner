@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="text-center title">New reservation</h1>
+    <div class="form columns">
+        <div class="field column is-4 is-centered">
+            {{date-range-picker
+                label='Choose dates'
+                start='Today'
+                end="20180531"
+                applyAction=(action "setDateRange")
+                hideAction=(action "hideDatePicker")
+                cancelAction=(action "cancelDatePicker")  
+            }}
+        </div>
+    </div>
+    <div class="field">
+        <label>Type of Holidays</label>
+        <div class="control">
+            <div class="select">
+                <select  id="select">
+                    {{#each data as |type|}}
+                    <option value={{type.id}}>{{type.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-primary is-rounded is-focused" {{action 'recordHoliday'}}>Reserve</button>
+    </div>
+</div>
+{{yield}}
