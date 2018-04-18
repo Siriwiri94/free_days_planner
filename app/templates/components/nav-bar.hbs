@@ -14,9 +14,11 @@
             {{#link-to 'admin_users' tagName="a" class="navbar-item"}}<a href="">Users</a>{{/link-to}}
             {{#link-to 'admin_requests' tagName="a" class="navbar-item"}}<a href="">Requests</a>{{/link-to}}
             {{#link-to 'admin_others' tagName="a" class="navbar-item"}}<a href="">Others</a>{{/link-to}}
-            {{#link-to 'main_page' tagName="a" class="navbar-item"}}<a href="">Calendar</a>{{/link-to}}
+            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="">Calendar</a>{{/link-to}}
             {{else}}
             {{#link-to 'reserve' tagName="a" class="navbar-item"}}<a href="" class="">Reserve</a>{{/link-to}}
+            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="" class="">Calendar</a>{{/link-to}}
+            {{#link-to 'user_page' tagName="a" class="navbar-item"}}<a href="" class="">My holidays</a>{{/link-to}}
         {{/if}}
         {{/if}}
         {{#if session.isAuthenticated}}

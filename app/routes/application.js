@@ -16,6 +16,11 @@ export default Route.extend(ApplicationRouteMixin, {
         this._loadCurrentUser();
     },
 
+    sessionInvalidated() {
+        this._super(...arguments);
+        this.set('currentUser.user', null);
+    },
+
     _loadCurrentUser() {
         return this.get('currentUser').load().then(user => {
             if (user.get('isAdmin')) {
