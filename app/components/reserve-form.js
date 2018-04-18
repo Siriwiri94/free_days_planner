@@ -2,15 +2,16 @@ import Component from '@ember/component';
 import moment from 'moment';
 import { inject as service } from '@ember/service';
 export default Component.extend({
-    selectedOption: null,
     data:null,
     store: service(),
     startDay:null,
     endDay: null,
     currentUser: service(),
+    selectedOption: null,
     didInsertElement(){
         this.get('store').findAll('vacation-type').then(data => {
             this.set('data', data);
+            
         })
     },
     actions:{
@@ -28,6 +29,7 @@ export default Component.extend({
             this.set('selectedOption', selected)
         },
         recordHoliday(){
+            this.set('selectedOption', 1) ;
             var vacationRequest= this.get('store').createRecord('vacation-request', {
                 startDay: new Date(this.get('startDay')),
                 endDay: new Date(this.get('endDay')),

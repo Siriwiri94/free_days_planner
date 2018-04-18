@@ -1,0 +1,39 @@
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Active</th>
+    <th>Last Login</th>
+    <th>Name</th>
+    <th>Days Left</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each data as |user|}}
+
+    <tr>
+        <td>
+          {{user.username}}
+      </td>
+      <td>
+        {{user.role}}
+      </td>
+      <td>
+          {{user.active}}
+      </td>
+      <td>
+          {{user.last_login_at}}
+      </td>
+      <td>
+        {{user.name}}
+      </td>
+      <td>
+        {{user.days_left}}
+      </td>
+    </tr>
+
+  {{/each}}
+  </tbody>
+</table> 
+{{yield}}
