@@ -4,6 +4,7 @@
     <th>Employee</th>
     <th>Start Day</th>
     <th>End Day</th>
+    <th>Reason</th>
     <th>State</th>
   </tr>
   </thead>
@@ -21,7 +22,10 @@
           {{holiday.endDay}}
       </td>
       <td>
-          {{holiday.state}}
+          {{holiday.vacationType.id}}
+      </td>
+      <td>
+        {{holiday.state}}
       </td>
     </tr>
 
