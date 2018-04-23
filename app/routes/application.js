@@ -16,10 +16,15 @@ export default Route.extend(ApplicationRouteMixin, {
         this._loadCurrentUser();
     },
 
+    sessionInvalidated() {
+        this._super(...arguments);
+        this.set('currentUser.user', null);
+    },
+
     _loadCurrentUser() {
         return this.get('currentUser').load().then(user => {
             if (user.get('isAdmin')) {
-                this.transitionTo('admin_requests')
+                this.transitionTo('calendar_page')
             } else {
                 this.transitionTo('user_page')
             }

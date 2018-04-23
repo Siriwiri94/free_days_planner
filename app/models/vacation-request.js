@@ -1,22 +1,27 @@
 import DS from 'ember-data';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-
 export default DS.Model.extend({
     currentUser: service(),
     startDay: DS.attr('date'),
     endDay: DS.attr('date'),
+<<<<<<< HEAD
     accepted: DS.attr('boolean', {allowNull: true}),
+=======
+    accepted: DS.attr('boolean', {allowNull:true}),
+>>>>>>> 62970e891d4e3bb28466b9da44b7b2ae1290fe2f
     user: DS.belongsTo('user'),
     vacationType: DS.belongsTo('vacationType'),
     state: computed('accepted', function(){
-        if(this.get('accepted')===true){
-            return 'Accepted'
-        }else if(this.get('accepted')===false){
-            return 'Rejected'
-        }else if(this.get('accepted')==null){
+        if(this.get('accepted')===null){
             return 'Pending'
-        }
+        }else{
+            if(this.get('accepted')===true){
+                return 'Accepted'
+            }else if(this.get('accepted')===false){
+                return 'Rejected'
+            }
+        }   
     }),
     totalDays: computed('startDay', 'endDay', function(){
         var start= this.get("startDay").getTime();

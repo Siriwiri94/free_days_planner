@@ -1,0 +1,42 @@
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Employee</th>
+    <th>Start Day</th>
+    <th>End Day</th>
+    <th>Total Days</th>
+    <th>Type</th>
+    <th>State</th>
+    <th>Options</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each data as |holiday|}}
+    <tr>
+      <td>
+        {{holiday.user.username}}
+      </td>
+      <td>
+        {{moment-format holiday.startDay 'MM-DD-YYYY'}}
+      </td>
+      <td>
+        {{moment-format holiday.endDay 'MM-DD-YYYY'}}
+      </td>
+      <td>
+        {{holiday.totalDays}}
+      </td>
+      <td>
+        {{holiday.vacationType.name}}
+      </td>
+      <td>
+        {{holiday.state}}
+      </td>
+      <td>
+        <button type="submit" class="button is-success" {{action 'toAccept' holiday}}>Accept</button>
+        <button type="submit" class="button is-danger" {{action "toDeny" holiday}}>Deny</button>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table> 
+{{yield}}

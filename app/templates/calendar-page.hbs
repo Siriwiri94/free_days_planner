@@ -1,0 +1,10 @@
+{{#if session.isAuthenticated}}
+    {{#if currentUser.user}}
+        {{full-calendar events=model
+        defaultView="month"
+        allDaySlot=false
+        register-as="accessToFullCalendar"
+        nowIndicator=true}}
+    {{/if}}
+{{/if}}
+{{outlet}}

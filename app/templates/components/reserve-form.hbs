@@ -16,7 +16,7 @@
         <label>Type of Holidays</label>
         <div class="control">
             <div class="select">
-                <select  id="select">
+                <select  id="select" onchange={{action "setSelection" value="target.value"}}>
                     {{#each data as |type|}}
                     <option value={{type.id}}>{{type.name}}</option>
                     {{/each}}
