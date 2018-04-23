@@ -6,7 +6,7 @@ export default DS.Model.extend({
     currentUser: service(),
     startDay: DS.attr('date'),
     endDay: DS.attr('date'),
-    accepted: DS.attr('boolean'),
+    accepted: DS.attr('boolean', {allowNull: true}),
     user: DS.belongsTo('user'),
     vacationType: DS.belongsTo('vacationType'),
     state: computed('accepted', function(){
@@ -27,4 +27,5 @@ export default DS.Model.extend({
     isMe: computed('user.id', 'currentUser.user.id', function(){
         return this.get('user.id') === this.get('currentUser.user.id');
     }),
+    documents: DS.hasMany('document'),
 });

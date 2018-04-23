@@ -27,7 +27,7 @@ export default Component.extend({
             var vacationRequest= this.get('store').createRecord('vacation-request', {
                 startDay: new Date(this.get('startDay')),
                 endDay: new Date(this.get('endDay')),
-                accepted: true,
+                accepted: null,
                 vacationType: this.get('store').peekAll('vacationType').get('firstObject')
               });
               vacationRequest.save();
