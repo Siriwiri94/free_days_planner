@@ -33,13 +33,8 @@ export default Component.extend({
             var vacationRequest= this.get('store').createRecord('vacation-request', {
                 startDay: new Date(this.get('startDay')),
                 endDay: new Date(this.get('endDay')),
-<<<<<<< HEAD
                 accepted: null,
                 vacationType: this.get('store').peekAll('vacationType').get('firstObject')
-=======
-                accepted: '',
-                vacationType: this.get('store').peekRecord('vacationType', this.get('selectedOption'))
->>>>>>> 62970e891d4e3bb28466b9da44b7b2ae1290fe2f
               });
               vacationRequest.save();
               alert('registered reservation')

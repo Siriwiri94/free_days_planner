@@ -49,11 +49,7 @@
     "ember-moment": "^7.6.0",
     "ember-moment-transform": "^0.2.0",
     "ember-resolver": "^4.0.0",
-<<<<<<< HEAD
     "ember-route-action-helper": "^2.0.6",
-=======
-    "ember-responsive-tabs": "0.0.10",
->>>>>>> 62970e891d4e3bb28466b9da44b7b2ae1290fe2f
     "ember-simple-auth": "^1.6.0",
     "ember-simple-auth-token": "^3.0.0",
     "ember-source": "~3.0.0",

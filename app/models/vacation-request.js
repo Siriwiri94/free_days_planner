@@ -5,11 +5,7 @@ export default DS.Model.extend({
     currentUser: service(),
     startDay: DS.attr('date'),
     endDay: DS.attr('date'),
-<<<<<<< HEAD
     accepted: DS.attr('boolean', {allowNull: true}),
-=======
-    accepted: DS.attr('boolean', {allowNull:true}),
->>>>>>> 62970e891d4e3bb28466b9da44b7b2ae1290fe2f
     user: DS.belongsTo('user'),
     vacationType: DS.belongsTo('vacationType'),
     state: computed('accepted', function(){
