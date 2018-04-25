@@ -43,7 +43,6 @@
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-font-awesome": "^4.0.0-rc.2",
-    "ember-fullcalendar": "^1.8.0",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^7.6.0",

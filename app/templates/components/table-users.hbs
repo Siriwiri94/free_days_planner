@@ -2,11 +2,12 @@
   <thead>
   <tr>
     <th>Username</th>
-    <th>Role</th>
-    <th>Active</th>
-    <th>Last Login</th>
     <th>Name</th>
-    <th>Days Left</th>
+    <th>Surname</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Options</th>
   </tr>
   </thead>
   <tbody>
@@ -17,22 +18,25 @@
           {{user.username}}
       </td>
       <td>
-        {{user.role}}
-      </td>
-      <td>
-          {{user.active}}
-      </td>
-      <td>
-          {{user.last_login_at}}
-      </td>
-      <td>
         {{user.name}}
       </td>
       <td>
-        {{user.days_left}}
+          {{user.surname}}
+      </td>
+      <td>
+        {{user.phone}}
+      </td>
+      <td>
+        {{user.email}}
+      </td>
+      <td>
+        {{user.role}}
+      </td>
+      <td>
+        {{#link-to 'users.edit' user.id class="button"}}<i class="fa fa-edit" aria-hidden="true"></i>{{/link-to}}
+        <button class=" button is-danger" {{action 'deleteUser' user}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
       </td>
     </tr>
-
   {{/each}}
   </tbody>
 </table> 

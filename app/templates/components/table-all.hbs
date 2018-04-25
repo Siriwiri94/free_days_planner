@@ -28,7 +28,7 @@
         {{holiday.vacationType.name}}
       </td>
       <td>
-        {{holiday.state}}
+        {{holiday.state}}<button class=" button is-danger is-pulled-right" {{action 'deleteHoliday' holiday}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
       </td>
     </tr>
   {{/each}}

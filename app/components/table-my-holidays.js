@@ -13,7 +13,10 @@ export default Component.extend({
     actions:{
         deleteHoliday(holiday){
             this.get('store').findRecord('vacation-request', holiday.id, { backgroundReload: false }).then(function(holiday) {
-                holiday.destroyRecord();
+                let confirmation = confirm('Are you sure?');
+                if (confirmation) {
+                    holiday.destroyRecord();
+                }
               });
         }
     } 

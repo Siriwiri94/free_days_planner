@@ -8,6 +8,15 @@ export default Component.extend({
         this.get('store').findAll('user').then(data => {
             this.set('data', data);
         })
-    }
-
+    },
+    actions:{
+        deleteUser(user){
+            this.get('store').findRecord('user', user.id, { backgroundReload: false }).then(function(user) {
+                let confirmation = confirm('Are you sure?');
+                if (confirmation) {
+                    user.destroyRecord();
+                }
+            });
+        }
+    } 
 });

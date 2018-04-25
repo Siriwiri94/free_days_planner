@@ -1,6 +1,6 @@
 {{#if currentUser.user.isAdmin}}
     <h1 class="text-center title">Users</h1>
-    {{#link-to 'new_user' tagName="a" class="is-pulled-right"}}<a href="">Add new user</a>{{/link-to}}
+    {{#link-to 'users.new' tagName="a" class="is-pulled-right"}}<a href="">Add new user</a>{{/link-to}}
     {{table-users}}
 {{else}}
 <h1 class="text-center text-danger font-italic"><u><i>You are not authorized</i></u></h1>

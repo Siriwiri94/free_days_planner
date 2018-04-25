@@ -10,19 +10,20 @@
     <div class="collapse navbar-collapse" id="main-navbar">
       <div class="nav">
         {{#if currentUser.user}}
-          {{#if currentUser.user.isAdmin}}
-          {{#basic-dropdown as |dropdown|}}
-          <div class="navbar-item">{{#dropdown.trigger}} <a href="#">Requests</a>{{/dropdown.trigger}}</div>
-              
-              {{#dropdown.content}} {{#link-to 'all_requests' tagName="a" class="navbar-item"}}<a href="">All</a>{{/link-to}}{{#link-to 'pending_requests' tagName="a" class="navbar-item"}}<a href="">Pending</a>{{/link-to}} {{/dropdown.content}}
-            {{/basic-dropdown}}
-            {{#link-to 'admin_users' tagName="a" class="navbar-item"}}<a href="">Users</a>{{/link-to}}
-            {{#link-to 'admin_others' tagName="a" class="navbar-item"}}<a href="">Others</a>{{/link-to}}
-            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="">Calendar</a>{{/link-to}}
-          {{else}}
+          {{#if currentUser.user.isWorker}}
             {{#link-to 'reserve' tagName="a" class="navbar-item"}}<a href="" class="">Reserve</a>{{/link-to}}
             {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="" class="">Calendar</a>{{/link-to}}
             {{#link-to 'user_page' tagName="a" class="navbar-item"}}<a href="" class="">My holidays</a>{{/link-to}}
+          {{else}}
+            {{#basic-dropdown as |dropdown|}}
+              <div class="navbar-item">{{#dropdown.trigger}} <a href="#">Requests</a>{{/dropdown.trigger}}</div>
+              {{#dropdown.content}} {{#link-to 'all_requests' tagName="a" class="navbar-item"}}<a href="">All</a>{{/link-to}}{{#link-to 'pending_requests' tagName="a" class="navbar-item"}}<a href="">Pending</a>{{/link-to}} {{/dropdown.content}}
+            {{/basic-dropdown}}
+            {{#if currentUser.user.isAdmin}}
+            {{#link-to 'admin_users' tagName="a" class="navbar-item"}}<a href="">Users</a>{{/link-to}}
+            {{/if}}
+            {{#link-to 'admin_others' tagName="a" class="navbar-item"}}<a href="">Others</a>{{/link-to}}
+            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="">Calendar</a>{{/link-to}}
           {{/if}}
         {{/if}}
         {{#if session.isAuthenticated}}
