@@ -20,7 +20,6 @@ export default Component.extend({
                     size: get(file, 'size'),
                     mime_type: get(file, 'type')
                 },
-                url: link
             }),
             url: link
         });
