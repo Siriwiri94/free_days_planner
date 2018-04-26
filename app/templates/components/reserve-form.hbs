@@ -24,9 +24,9 @@
             </div>
         </div>
     </div>
-    {{file-uploader model=image}} <!-- onUpload=(action '') -->
+    {{file-uploader model=image onUpload=(action 'setDocument')}} <!-- onUpload=(action '') -->
     <div class="control">
-        <button class="button is-primary is-rounded is-focused" {{action 'recordHoliday'}}>Reserve</button>
+        <button class="button is-primary is-rounded is-focused" {{action 'recordHoliday'}} disabled={{isDisabled}}>Reserve</button>
     </div>
 </div>
 {{yield}}

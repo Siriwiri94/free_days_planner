@@ -21,7 +21,6 @@ export default Component.extend({
                     size: get(file, 'size'),
                     mime_type: get(file, 'type')
                 },
-                url: link
             }),
             url: link
         });
@@ -34,7 +33,9 @@ export default Component.extend({
 
     actions: {
         uploadImage(file) {
-            get(this, 'uploadPhoto').perform(file).then(document => {console.log(document)});
+            get(this, 'uploadPhoto').perform(file).then(document => {
+                this.get('onUpload')(document);
+            });
         }
     }
     
