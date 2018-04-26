@@ -12,6 +12,7 @@ export default Component.extend({
         dateChange(view) {
             this.get('store').query('vacation-request', {
                 filter: {
+                    calendar:true,
                     start_date:view.start.toISOString(true), 
                     end_date:view.end.toISOString(true) 
                 }, include: 'user'}).then(data => {

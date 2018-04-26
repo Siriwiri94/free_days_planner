@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { task } from 'ember-concurrency';
-import { get, set } from '@ember/object';
+import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
@@ -11,7 +11,6 @@ export default Component.extend({
         });
         let body = get(response, 'body');
         var link = get(body, 'url');
-        console.log(link);
         let document = this.get('store').createRecord('document', {
             fileData: JSON.stringify({
                 id: get(body, 'public_id'),            
@@ -31,10 +30,11 @@ export default Component.extend({
              document.rollback();
         }
     }).maxConcurrency(3).enqueue(),
-
     actions: {
         uploadImage(file) {
-            get(this, 'uploadPhoto').perform(file).then(document => {console.log(document)});
+            get(this, 'uploadPhoto').perform(file).then(document => {
+                this.get('onUpload')(document);
+            });
         }
     }
     
