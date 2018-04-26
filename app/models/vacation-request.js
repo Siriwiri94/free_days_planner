@@ -23,7 +23,7 @@ export default DS.Model.extend({
         var start= this.get("startDay").getTime();
         var end= this.get("endDay").getTime();
         var diff = end-start;
-        return diff/(1000*60*60*24);
+        return diff/(1000*60*60*24)+1;
     }),
     isMe: computed('user.id', 'currentUser.user.id', function(){
         return this.get('user.id') === this.get('currentUser.user.id');

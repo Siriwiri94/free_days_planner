@@ -23,10 +23,10 @@ export default Route.extend(ApplicationRouteMixin, {
 
     _loadCurrentUser() {
         return this.get('currentUser').load().then(user => {
-            if (user.get('isAdmin')) {
-                this.transitionTo('calendar_page')
-            } else {
+            if (user.get('isWorker')) {
                 this.transitionTo('user_page')
+            } else {
+                this.transitionTo('calendar_page')
             }
         }, ()=> this.get('session').invalidate());
     }            

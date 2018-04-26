@@ -6,8 +6,14 @@ export default DS.Model.extend({
     password: DS.attr('string'),
     role: DS.attr('string'),
     token: DS.attr('string'),
+    surname: DS.attr('string'),
+    phone: DS.attr('string'),
+    email: DS.attr('string'),
     days_left:DS.attr('number'),
     isAdmin: computed('role', function(){
         return this.get('role') ==='admin';
+    }),
+    isWorker: computed('role', function(){
+        return this.get('role') ==='worker';
     })
 });

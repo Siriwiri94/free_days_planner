@@ -18,7 +18,10 @@ Router.map(function() {
   this.route('calendar_page');
   this.route('all_requests');
   this.route('pending_requests');
-  this.route('new_user');
+  this.route('users', function(){
+    this.route('edit', { path: ':userid/edit' });
+    this.route('new', { path: '/new' });
+  });
 });
 
 export default Router;

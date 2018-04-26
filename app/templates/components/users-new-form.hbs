@@ -1,0 +1,56 @@
+<div class="columns">
+<div class="column is-4"></div>
+<div class="column is-4 is-centered">
+    <div class="field">
+    <label class="">User name:</label>
+    <div class="control">
+        {{input class="input" type="text" value=username}}
+    </div>
+    </div>
+    <div class="field">
+    <label class="">Name:</label>
+    <div class="control">
+        {{input class="input" type="text" value=name}}
+    </div>
+    </div>
+    <div class="field">
+    <label class="">Surname:</label>
+    <div class="control">
+        {{input class="input" type="text" value=surname}}
+    </div>
+    </div>
+    <div class="field">
+    <label class="">Phone number:</label>
+    <div class="control">
+        {{input class="input" type="text" value=phone}}
+    </div>
+    </div>
+    <div class="field">
+    <label class="">Email:</label>
+    <div class="control">
+        {{input class="input" type="text" value=email}}
+    </div>
+    </div>
+    <div class="field">
+    <label class="">Password:</label>
+    <div class="control">
+        {{input class="input" type="text" value=password}}
+    </div>
+    </div>
+    <div class="field">
+        <label>Role</label>
+        <div class="control">
+            <div class="select">
+                <select  id="select" onchange={{action 'setSelection' value="target.value"}}>
+                    <option value="worker">Worker</option>
+                    <option value="admin">Admin</option>
+                    <option value="supervisor">Supervisor</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="control has-text-centered">
+        <button class="button is-primary is-rounded is-focused" {{action 'recordUser'}}>Save</button>
+    </div>
+</div>
+</div>
