@@ -4,6 +4,7 @@ import { match, not } from '@ember/object/computed';
 import { notEmpty } from '@ember/object/computed';
 export default Component.extend({
     store: service(),
+    router: service(),
     username: null,
     name: null,
     surname: null,
@@ -27,8 +28,12 @@ export default Component.extend({
                 password: this.get('password'),
                 role:this.get('role'),
               });
-              newUser.save();
-              alert('A new user has been registered')
+              newUser.save().then(() => {
+                alert('A new user has been registered')
+                this.setProperties({username: '', name: '', surname: '', phone: '', email: '', password:'', role:''});
+                this.get('router').transitionTo('admin_users');
+              });
         },
+        
     }
 });

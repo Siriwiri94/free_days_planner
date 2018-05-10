@@ -1,6 +1,7 @@
 <div class="columns">
 <div class="column is-4"></div>
 <div class="column is-4 is-centered">
+    <form {{action 'recordUser' on="submit"}}>
     <div class="field">
     <label class="">User name:</label>
     <div class="control">
@@ -50,7 +51,8 @@
         </div>
     </div>
     <div class="control has-text-centered">
-        <button class="button is-primary is-rounded is-focused" {{action 'recordUser'}} disabled={{isDisabled}}>Save</button>
+        <button type="submit" class="button is-primary is-rounded is-focused" disabled={{isDisabled}}>Save</button>
     </div>
+    </form>
 </div>
 </div>
