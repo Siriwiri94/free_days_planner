@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container" style="text-align:center">
     <h1 class="text-center title">New reservation</h1>
-    <div class="form columns">
+    <div class="box">
+    <div class="form columns is-centered">
         <div class="field column is-4 is-centered">
             {{date-range-picker
                 label='Choose dates'
@@ -14,9 +15,9 @@
     </div>
     <div class="field">
         <label>Type of Holidays</label>
-        <div class="control">
-            <div class="select">
-                <select  id="select" onchange={{action "setSelection" value="target.value"}}>
+        <div class="control has-text-centered">
+            <div class="select has-text-centered">
+                <select  id="select" class="is-centered" style="margin:auto" onchange={{action "setSelection" value="target.value"}}>
                     {{#each data as |type|}}
                     <option value={{type.id}}>{{type.name}}</option>
                     {{/each}}
@@ -25,8 +26,9 @@
         </div>
     </div>
     {{file-uploader model=image onUpload=(action 'setDocument')}} <!-- onUpload=(action '') -->
-    <div class="control">
-        <button class="button is-primary is-rounded is-focused" {{action 'recordHoliday'}} disabled={{isDisabled}}>Reserve</button>
+    <div class="control has-text-centered" style="margin-top:10px;">
+        <button class="button is-primary is-rounded is-focused has-text-centered" {{action 'recordHoliday'}} disabled={{isDisabled}}>Reserve</button>
+    </div>
     </div>
 </div>
 {{yield}}

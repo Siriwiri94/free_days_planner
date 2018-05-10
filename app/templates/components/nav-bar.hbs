@@ -5,31 +5,28 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
         Menu
       </button>
-      
     </div>
     <div class="collapse navbar-collapse" id="main-navbar">
-      <div class="nav">
+      <div class="nav" id="edit-navbar">
         {{#if currentUser.user}}
           {{#if currentUser.user.isWorker}}
-            {{#link-to 'reserve' tagName="a" class="navbar-item"}}<a href="" class="">Reserve</a>{{/link-to}}
-            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="" class="">Calendar</a>{{/link-to}}
-            {{#link-to 'user_page' tagName="a" class="navbar-item"}}<a href="" class="">My holidays</a>{{/link-to}}
+            {{#link-to 'reserve' tagName="a" class="navbar-item"}}<a href="" class="" id="navbar_item">Reserve</a>{{/link-to}}
+            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="" class="" id="navbar_item">Calendar</a>{{/link-to}}
+            {{#link-to 'user_page' tagName="a" class="navbar-item"}}<a href="" class="" id="navbar_item">My holidays</a>{{/link-to}}
           {{else}}
             {{#basic-dropdown as |dropdown|}}
-              <div class="navbar-item">{{#dropdown.trigger}} <a href="#">Requests</a>{{/dropdown.trigger}}</div>
+              <div class="navbar-item">{{#dropdown.trigger}} <a href="#" id="navbar_item">Requests</a>{{/dropdown.trigger}}</div>
               {{#dropdown.content}} {{#link-to 'all_requests' tagName="a" class="navbar-item"}}<a href="">All</a>{{/link-to}}{{#link-to 'pending_requests' tagName="a" class="navbar-item"}}<a href="">Pending</a>{{/link-to}} {{/dropdown.content}}
             {{/basic-dropdown}}
             {{#if currentUser.user.isAdmin}}
-            {{#link-to 'admin_users' tagName="a" class="navbar-item"}}<a href="">Users</a>{{/link-to}}
+            {{#link-to 'admin_users' tagName="a" class="navbar-item"}}<a href="" id="navbar_item">Users</a>{{/link-to}}
             {{/if}}
-            {{#link-to 'admin_others' tagName="a" class="navbar-item"}}<a href="">Others</a>{{/link-to}}
-            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="">Calendar</a>{{/link-to}}
+            {{#link-to 'admin_others' tagName="a" class="navbar-item"}}<a href="" id="navbar_item">Others</a>{{/link-to}}
+            {{#link-to 'calendar_page' tagName="a" class="navbar-item"}}<a href="" id="navbar_item">Calendar</a>{{/link-to}}
           {{/if}}
         {{/if}}
         {{#if session.isAuthenticated}}
-        {{#link-to 'login' tagName="a" class="navbar-item"}}<a href="#" {{action 'invalidateSession'}}>Logout</a>{{/link-to}}
-      {{else}}
-      {{#link-to 'login' tagName="a" class="navbar-item"}}<a href="#">Login</a>{{/link-to}}
+        {{#link-to 'login' tagName="a" class="navbar-item"}}<a href="#" {{action 'invalidateSession'}} id="navbar_item">Logout</a>{{/link-to}}
       {{/if}}
       </div>
     </div><!-- /.navbar-collapse -->

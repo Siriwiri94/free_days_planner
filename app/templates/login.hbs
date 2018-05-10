@@ -1,5 +1,6 @@
 <div class="title has-text-centered">Free days planner</div>
-<form {{action 'authenticate' on='submit'}} class="box is-centered">
+<div class="box is-centered" style="margin:auto">
+<form {{action 'authenticate' on='submit'}}>
   <div class="field columns is-centered">
     <label class="column is-1">Username</label>
     <div class="control column is-1">
@@ -18,4 +19,6 @@
   {{#if errorMessage}}
     <div class="text-danger">Incorrect username or password</div>
   {{/if}}
+
 </form>
+  </div>

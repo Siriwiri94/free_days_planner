@@ -1,11 +1,39 @@
 @import 'ember-basic-dropdown';
 @import "bootstrap";
 @import "bulma";
-
+#content{
+    padding:10px;
+}
+html{
+    height:100%;
+}
+body{
+    background: url("/assets/img/wallpaper.jpg");
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 #footer
 {
     position: absolute;
     bottom: 0;
     width:100%;
 }
+#edit-navbar
+{
+    background-color: #00d1b2;
+}
+#navbar_item{
+    color:white;
+    font-weight: bold;
+    background-color:transparent;
+}
+.title{
+    color:white;
+}
+#edit-navbar a:hover{
+    background-color:transparent;
+}
+
   

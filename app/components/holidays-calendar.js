@@ -21,7 +21,10 @@ export default Component.extend({
                         id: item.get('id'), 
                         title: item.get('user.username'), 
                         start: moment(item.get('startDay')).format('YYYY-MM-DD'),
-                        end: moment(item.get('endDay')).format('YYYY-MM-DD')
+                        end: moment(item.get('endDay')).format('YYYY-MM-DD'),
+                        color:'#00D1B3',
+                        textColor:'white',
+                        borderColor: 'white'
                     }
                 });
                 this.set('data', vacationRequests); 
