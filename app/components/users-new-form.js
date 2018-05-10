@@ -1,5 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { match, not } from '@ember/object/computed';
+import { notEmpty } from '@ember/object/computed';
 export default Component.extend({
     store: service(),
     username: null,
@@ -9,6 +11,8 @@ export default Component.extend({
     email: null,
     password: null,
     role:'worker',
+    isValid: match('email', /^.+@.+\..+$/) && notEmpty('username') && notEmpty('password') && notEmpty('email'),
+    isDisabled: not('isValid'),
     actions:{
         setSelection: function(selected) {
             this.set('role', selected);

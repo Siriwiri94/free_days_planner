@@ -21,7 +21,8 @@ export default Component.extend({
                     mime_type: get(file, 'type')
                 },
             }),
-            url: link
+            url: link, 
+            extension: get(body, 'format')
         });
         try {
             return yield document.save();

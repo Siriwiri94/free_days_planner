@@ -14,8 +14,6 @@ export function initialize(instance) {
 
 export default Controller.extend({  
   session: service(),
-  identification: 'siri',
-  password:'siri',
   actions: {
 
     authenticate() {
