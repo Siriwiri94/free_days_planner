@@ -17,11 +17,13 @@ export default Component.extend({
                     end_date:view.end.toISOString(true) 
                 }, include: 'user'}).then(data => {
                 const vacationRequests = data.map(item => {
+                    var endate = moment(item.get('endDay'), 'YYYY-MM-DD').add('days', 1);
+                    endate= endate.format('YYYY-MM-DD');
                     return {
                         id: item.get('id'), 
                         title: item.get('user.username'), 
                         start: moment(item.get('startDay')).format('YYYY-MM-DD'),
-                        end: moment(item.get('endDay')).format('YYYY-MM-DD'),
+                        end: endate,
                         color:'#00D1B3',
                         textColor:'white',
                         borderColor: 'white'
