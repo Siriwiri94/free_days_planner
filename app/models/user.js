@@ -10,6 +10,7 @@ export default DS.Model.extend({
     phone: DS.attr('string'),
     email: DS.attr('string'),
     days_left:DS.attr('number'),
+    language:DS.attr('string'),
     isAdmin: computed('role', function(){
         return this.get('role') ==='admin';
     }),

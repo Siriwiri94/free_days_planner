@@ -11,12 +11,16 @@ export default Component.extend({
     phone: null,
     email: null,
     password: null,
+    language:'en',
     role:'worker',
     isValid: match('email', /^.+@.+\..+$/) && notEmpty('username') && notEmpty('password') && notEmpty('email'),
     isDisabled: not('isValid'),
     actions:{
-        setSelection: function(selected) {
+        setRole: function(selected) {
             this.set('role', selected);
+        },  
+        setLanguage: function(selected) {
+            this.set('language', selected);
         },  
         recordUser(){
             var newUser= this.get('store').createRecord('user', {
@@ -26,6 +30,7 @@ export default Component.extend({
                 phone: this.get('phone'),
                 email:this.get('email'),
                 password: this.get('password'),
+                language: this.get('language'),
                 role:this.get('role'),
               });
               newUser.save().then(() => {

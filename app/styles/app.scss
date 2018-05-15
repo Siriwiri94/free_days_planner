@@ -16,7 +16,7 @@ body{
 }
 #footer
 {
-    position: absolute;
+    position: absolute; 
     bottom: 0;
     width:100%;
 }
@@ -38,5 +38,27 @@ body{
 .table{
     overflow:auto;
 }
+#language{
+    width:40px;
+    background-color: transparent;
+}
+.ember-basic-dropdown-trigger{
+    text-align:center;
+    margin-right: 10px;
+    width:65px;
+    color:white;
+    font-weight: bold;
+}
+a.lenguage_link{
+    color:white;
+}
+a.lenguaje_link:visited{
+    color:white;
+}
+#lala{
+    background-color:transparent;
+}
+
+
 
   

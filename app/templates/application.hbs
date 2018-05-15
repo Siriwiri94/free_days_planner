@@ -2,6 +2,16 @@
     <div id="content">
     {{#nav-bar}}
     {{/nav-bar}}
+    <div class="is-pulled-right">
+        {{#basic-dropdown as |dropdown|}}
+            {{#dropdown.trigger}} <a href="#" id="language_link" class="lenguage_link">{{t "usersTable.language"}}</a>{{/dropdown.trigger}}
+            {{#dropdown.content id="lala"}}
+            <img class="is-pulled-right" id="language" src="/assets/img/england.png" alt="" srcset="" {{action 'changeLanguage' 'en'}}>
+            <img class="is-pulled-right" id="language" src="/assets/img/spain.png" alt="" srcset="" {{action 'changeLanguage' 'es'}}>
+            <img class="is-pulled-right" id="language" src="/assets/img/czech.png" alt="" srcset="" {{action 'changeLanguage' 'cs'}}>
+            {{/dropdown.content}}
+        {{/basic-dropdown}}
+    </div>
         {{outlet}}
     </div>
     

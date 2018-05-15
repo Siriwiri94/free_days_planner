@@ -1,4 +1,4 @@
-<h1 class="text-center title">Users</h1>
-{{#link-to 'users.new' tagName="a" class="is-pulled-right"}}<a href=""><b>Add new user</b></a>{{/link-to}}
+<h1 class="text-center title">{{t "title.users"}}</h1>
+{{#link-to 'users.new' tagName="a" class="is-pulled-right"}}<a href="" id="link_add"><b>{{t "linkAddUser"}}</b></a>{{/link-to}}
 {{table-users}}
 {{outlet}}

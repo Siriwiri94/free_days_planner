@@ -44,6 +44,7 @@
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-font-awesome": "^4.0.0-rc.2",
+    "ember-i18n": "^5.2.1",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^7.6.0",
@@ -53,16 +54,19 @@
     "ember-simple-auth": "^1.6.0",
     "ember-simple-auth-token": "^3.0.0",
     "ember-source": "~3.0.0",
+    "ember-world-flags": "^1.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "ivy-tabs": "^3.3.0",
     "loader.js": "^4.2.3",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "ui-flag": "^0.2.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {
     "ember-file-upload": "^2.4.2",
+    "flag-icon-css": "^3.0.0",
     "fullcalendar": "^3.9.0",
     "uppy": "^0.24.2",
     "vue-bulma-tabs": "^1.1.2"

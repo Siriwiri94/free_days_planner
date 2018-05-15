@@ -2,19 +2,19 @@
 <div class="box is-centered" style="margin:auto">
 <form {{action 'authenticate' on='submit'}}>
   <div class="field columns is-centered">
-    <label class="column is-1">Username</label>
+    <label class="column is-1">{{t "login.username"}}</label>
     <div class="control column is-1">
       {{input id='identification' value=identification}}
     </div>
   </div>
   <div class="field columns is-centered">
-    <label class="column is-1">Password</label>
+    <label class="column is-1">{{t "login.password"}}</label>
     <div class="control column is-1">
       {{input id='password' value=password type="password"}}
     </div>
   </div>
   <div class="control has-text-centered">
-    <button class="button is-primary is-rounded is-focused">Submit</button>
+    <button class="button is-primary is-rounded is-focused">{{t "login.button"}}</button>
   </div>
   {{#if errorMessage}}
     <div class="text-danger">Incorrect username or password</div>

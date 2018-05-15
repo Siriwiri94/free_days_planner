@@ -69,5 +69,8 @@ module.exports = function(environment) {
     tokenExpireName: 'exp',
     refreshLeeway: 0,
   };
+  ENV.i18n = {
+    defaultLocale: 'en',
+  };
   return ENV;
 };

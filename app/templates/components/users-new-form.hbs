@@ -4,55 +4,67 @@
 <div class="column is-4 is-centered">
     <form {{action 'recordUser' on="submit"}}>
     <div class="field">
-    <label class="">User name:</label>
+    <label class="">{{t "usersTable.username"}}</label>
     <div class="control">
         {{input class="input" type="text" value=username}}
     </div>
     </div>
     <div class="field">
-    <label class="">Name:</label>
+    <label class="">{{t "usersTable.name"}}</label>
     <div class="control">
         {{input class="input" type="text" value=name}}
     </div>
     </div>
     <div class="field">
-    <label class="">Surname:</label>
+    <label class="">{{t "usersTable.surname"}}</label>
     <div class="control">
         {{input class="input" type="text" value=surname}}
     </div>
     </div>
     <div class="field">
-    <label class="">Phone number:</label>
+    <label class="">{{t "usersTable.phone"}}</label>
     <div class="control">
         {{input class="input" type="text" value=phone}}
     </div>
     </div>
     <div class="field">
-    <label class="">Email:</label>
+    <label class="">{{t "usersTable.email"}}</label>
     <div class="control">
         {{input class="input" type="email" value=email}}
     </div>
     </div>
     <div class="field">
-    <label class="">Password:</label>
+    <label class="">{{t "usersTable.password"}}</label>
     <div class="control">
         {{input class="input" type="password" value=password}}
     </div>
     </div>
     <div class="field">
-        <label>Role</label>
+        <label>{{t "usersTable.language"}}</label>
         <div class="control">
             <div class="select">
-                <select  id="select" onchange={{action 'setSelection' value="target.value"}}>
-                    <option value="worker">Worker</option>
-                    <option value="admin">Admin</option>
-                    <option value="supervisor">Supervisor</option>
+                <select  id="select" onchange={{action 'setLanguage' value="target.value"}}>
+                    <option value="en">{{t "english"}}</option>
+                    <option value="es">{{t "spanish"}}</option>
+                    <option value="cs">{{t "czech"}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>{{t "usersTable.role"}}</label>
+        <div class="control">
+            <div class="select">
+                <select  id="select" onchange={{action 'setRole' value="target.value"}}>
+                    <option value="worker">{{t "worker"}}</option>
+                    <option value="admin">{{t "admin"}}</option>
+                    <option value="supervisor">{{t "supervisor"}}</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="control has-text-centered">
-        <button type="submit" class="button is-primary is-rounded is-focused" disabled={{isDisabled}}>Save</button>
+        <button type="submit" class="button is-primary is-rounded is-focused" disabled={{isDisabled}}>{{t "button.save"}}</button>
     </div>
     </form>
 </div>

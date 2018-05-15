@@ -3,37 +3,37 @@
 <div class="column is-4"></div>
 <div class="column is-4 is-centered">
     <div class="field">
-    <label class="">User name:</label>
+    <label class="">{{t "usersTable.username"}}</label>
     <div class="control">
         {{input class="input" type="text" value=model.username}}
     </div>
     </div>
     <div class="field">
-    <label class="">Name:</label>
+    <label class="">{{t "usersTable.name"}}</label>
     <div class="control">
         {{input class="input" type="text" value=model.name}}
     </div>
     </div>
     <div class="field">
-    <label class="">Surname:</label>
+    <label class="">{{t "usersTable.surname"}}</label>
     <div class="control">
         {{input class="input" type="text" value=model.surname}}
     </div>
     </div>
     <div class="field">
-    <label class="">Phone number:</label>
+    <label class="">{{t "usersTable.phone"}}</label>
     <div class="control">
         {{input class="input" type="text" value=model.phone}}
     </div>
     </div>
     <div class="field">
-    <label class="">Email:</label>
+    <label class="">{{t "usersTable.email"}}</label>
     <div class="control">
         {{input class="input" type="text" value=model.email}}
     </div>
     </div>
     <div class="control has-text-centered">
-        <button class="button is-primary is-rounded is-focused" {{action 'recordUser'}}>Save</button>
+        <button class="button is-primary is-rounded is-focused" {{action 'recordUser'}}>{{t "button.save"}}</button>
     </div>
 </div>
 </div>
