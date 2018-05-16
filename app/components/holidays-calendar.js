@@ -2,12 +2,18 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import moment from 'moment';
 export default Component.extend({
+    router: service(),
+    isShowingModal: false,
     store: service(),
     data:null,
     session: service(),
     currentUser: service(),
     renderStart: null,
     renderEnd: null,
+    event:null,
+    showModal: function() {
+        this.toggleProperty('isShowingModal');
+    },
     actions: {
         dateChange(view) {
             this.get('store').query('vacation-request', {
@@ -32,6 +38,24 @@ export default Component.extend({
                 this.set('data', vacationRequests); 
             });
         },
+        clicked(event){
+            this.showModal(event);
+            this.set('event', event);
+        },
+        closeModal(){
+            this.set('isShowingModal', false);
+        },
+        deleteEvent(eventId){
+            this.get('store').findRecord('vacation-request', eventId, { backgroundReload: false }).then(event => {
+                let confirmation = confirm('Are you sure?');
+                if (confirmation) {
+                    event.destroyRecord().then(() =>{
+                        this.set('data', this.get('store').peekAll('vacation-request'));
+                        this.set('isShowingModal', false);
+                    });
+                }
+              });
+        }
     },
  
 });

@@ -47,6 +47,11 @@ export default {
   "english": "Inglés",
   "spanish": "Español",
   "czech": "Checo",
+  "modal.title":"Evento",
+  "modal.startDay":"Día de comienzo:",
+  "modal.endDay":"Día de fin:",
+  "modal.employee":"Empleado:",
+  "modal.button":"Eliminar",
   // "some.translation.key": "Text for some.translation.key",
   //
   // "a": {

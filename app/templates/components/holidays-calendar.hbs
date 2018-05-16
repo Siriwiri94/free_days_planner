@@ -3,4 +3,17 @@
         allDaySlot=false
         register-as="accessToFullCalendar"
         viewRender=(action "dateChange")
-        nowIndicator=true}}
+        nowIndicator=true
+        eventClick=(action "clicked")
+        }}
+{{#if isShowingModal}}
+  {{#modal-dialog targetAttachment="center" translucentOverlay=true onClickOverlay="closeModal"}}
+        <h1 class="title" style="text-align:center">{{t "modal.title"}}</h1><br>
+        <h3 class="subtitle"> {{t "modal.employee"}} {{event.title}}</h3>
+        <h3 class="subtitle">{{t "modal.startDay"}} {{moment-format event.start}}</h3>
+        <h3 class="subtitle">{{t "modal.endDay"}} {{moment-format event.end}}</h3>
+        {{#if currentUser.user.isAdmin}}
+        <button class="button is-danger" {{action 'deleteEvent' event.id}}>{{t "modal.button"}}</button>
+        {{/if}}
+  {{/modal-dialog}}
+{{/if}}

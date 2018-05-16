@@ -2,8 +2,11 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 export default Route.extend(ApplicationRouteMixin, {
+    session: service(),
+    moment: service(),
     i18n: service(),
     currentUser: service(),
+    store: service(),
     beforeModel() {
         this._super(...arguments);
         if (this.get('session.isAuthenticated')) {
@@ -27,18 +30,25 @@ export default Route.extend(ApplicationRouteMixin, {
             const language = user.get('language');
             if (language){
                 this.set('i18n.locale', language);
+                this.get('moment').setLocale(language);
             }
             if (user.get('isWorker')) {
                 this.transitionTo('user_page')
             } else {
-                this.transitionTo('calendar_page')
+                this.transitionTo('pending_requests')
             }
         }, ()=> this.get('session').invalidate());
     },
     actions:{
         changeLanguage(language){
             this.set('i18n.locale', language);
+            this.get('moment').setLocale(language);
+            if(this.get("currentUser.user.id")){
+                this.store.find('user', this.get("currentUser.user.id")).then(function(record) {
+                record.set('language', language);
+                record.save();
+                });
+            } 
         }   
     }
-        
 });

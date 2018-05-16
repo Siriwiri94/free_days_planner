@@ -1,6 +1,8 @@
 @import 'ember-basic-dropdown';
 @import "bootstrap";
 @import "bulma";
+@import 'ember-modal-dialog/ember-modal-structure';
+@import 'ember-modal-dialog/ember-modal-appearance';
 #content{
     padding:10px;
 }
@@ -55,9 +57,12 @@ a.lenguage_link{
 a.lenguaje_link:visited{
     color:white;
 }
-#lala{
-    background-color:transparent;
+.ember-modal-dialog{
+    background-color:#00d1b2;
+    width:30%;
+    text-align:center;
 }
+
 
 
 

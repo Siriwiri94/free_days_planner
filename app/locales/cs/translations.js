@@ -47,6 +47,11 @@ export default {
   "english": "angličtina",
   "spanish": "španělština",
   "czech": "čeština",
+  "modal.title":"Událost",
+  "modal.startDay":"Den zahájení:",
+  "modal.endDay":"Den konce:",
+  "modal.employee":"Zaměstnanec:",
+  "modal.button":"Vymazat",
   // "some.translation.key": "Text for some.translation.key",
   //
   // "a": {

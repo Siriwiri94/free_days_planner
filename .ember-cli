@@ -1,4 +1,3 @@
 {
-  "disableAnalytics": false,
-  "proxy":"http://192.168.88.40:3000"
+  "disableAnalytics": false
 }

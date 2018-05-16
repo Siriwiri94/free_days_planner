@@ -38,7 +38,6 @@ export default Component.extend({
                 this.setProperties({username: '', name: '', surname: '', phone: '', email: '', password:'', role:''});
                 this.get('router').transitionTo('admin_users');
               });
-        },
-        
+        }, 
     }
 });

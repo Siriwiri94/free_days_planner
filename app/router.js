@@ -22,6 +22,7 @@ Router.map(function() {
     this.route('edit', { path: ':userid/edit' });
     this.route('new', { path: '/new' });
   });
+  this.route('reload');
 });
 
 export default Router;
