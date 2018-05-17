@@ -4,6 +4,10 @@ export default Component.extend({
     session: service(),
     store: service(),
     data: null,
+    selectStart:null,
+    selectEnd:null,
+    isShowingForm: false,
+    requestId:null,
     didInsertElement() {
         this.get('store').findAll('vacation-request', {include: 'vacationType'}).then(data => {
             this.set('data', data);
@@ -17,6 +21,13 @@ export default Component.extend({
                     holiday.destroyRecord();
                 }
               });
-        }
+        },
+        closeModal(){
+            this.set('isShowingForm', false);
+        },
+        showModalForm(holiday) { 
+            this.toggleProperty('isShowingForm');
+            this.set('requestId', holiday.id)
+        },
     } 
 });

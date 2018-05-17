@@ -7,6 +7,7 @@
     <th>{{t  "table.totalDays"}}</th>
     <th>{{t  "table.type"}}</th>
     <th>{{t  "table.state"}}</th>
+    <th>{{t  "table.options"}}</th>
   </tr>
   </thead>
   <tbody>
@@ -28,10 +29,19 @@
         {{holiday.vacationType.name}}
       </td>
       <td>
-        {{holiday.state}}<button class=" button is-danger is-pulled-right" {{action 'deleteHoliday' holiday}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        {{holiday.state}}
+      </td>
+      <td>
+        <button class=" button" {{action 'showModalForm' holiday}}><i class="fa fa-edit" aria-hidden="true"></i></button>
+        <button class=" button is-danger is-pulled-right" {{action 'deleteHoliday' holiday}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
       </td>
     </tr>
   {{/each}}
   </tbody>
 </table> 
+{{#if isShowingForm}}
+  {{#modal-dialog targetAttachment="center" translucentOverlay=true onClickOverlay="closeModal"}}
+        {{modal-edit editId=requestId}}
+  {{/modal-dialog}}
+{{/if}}
 {{yield}}
