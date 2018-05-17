@@ -14,6 +14,7 @@ export default {
   "reserve.changeDates": "Cambiar fechas",
   "reserve.type": "Tipo de vaciones",
   "reserve.button": "Reservar",
+  "reserve.user": "Empleado",
   "table.startDay": "Día de comienzo",
   "table.endDay": "Día de fin",
   "table.totalDays": "Total de días",

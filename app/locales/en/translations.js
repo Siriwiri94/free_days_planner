@@ -10,6 +10,7 @@ export default {
   "title.users": "Users",
   "title.newUser": "New user",
   "title.editUser":"Edit user",
+  "reserve.user": "Employee",
   "reserve.chooseDates": "Choose dates",
   "reserve.changeDates": "Change dates",
   "reserve.type": "Type of holidays",

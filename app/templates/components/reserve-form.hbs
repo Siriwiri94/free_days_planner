@@ -1,11 +1,25 @@
 <div class="container" style="text-align:center">
     <h1 class="text-center title">{{t "title.reserve"}}</h1>
     <div class="box">
+        {{#if currentUser.user.isAdmin}}
+            <div class="field">
+                <label>{{t "reserve.user"}}</label>
+                <div class="control has-text-centered">
+                    <div class="select has-text-centered">
+                        <select  id="select" class="is-centered" style="margin:auto" onchange={{action "setSelectedUser" value="target.value"}}>
+                            {{#each dataUser as |user|}}
+                            <option value={{user.id}}>{{user.username}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
     <div class="form columns is-centered">
         <div class="field column is-4 is-centered"> <label for="">{{t "reserve.chooseDates"}}</label>
             {{date-range-picker
-                start='Today'
-                end="20180531"
+                start=(readonly today)
+                end=(readonly tomorrow)
                 applyAction=(action "setDateRange")
                 hideAction=(action "hideDatePicker")
                 cancelAction=(action "cancelDatePicker")  
