@@ -11,16 +11,21 @@ export default Component.extend({
     renderStart: null,
     renderEnd: null,
     event:null,
+    selectStart:null,
+    selectEnd:null,
+    isShowingForm: false,
     showModal: function() {
         this.toggleProperty('isShowingModal');
     },
-    actions: {
-        dateChange(view) {
-            this.get('store').query('vacation-request', {
+    showModalForm: function(){
+        this.toggleProperty('isShowingForm');
+    },
+    _loadData() {
+         this.get('store').query('vacation-request', {
                 filter: {
                     calendar:true,
-                    start_date:view.start.toISOString(true), 
-                    end_date:view.end.toISOString(true) 
+                    start_date: this.get('startDate'), 
+                    end_date: this.get('endDate') 
                 }, include: 'user'}).then(data => {
                 const vacationRequests = data.map(item => {
                     var endate = moment(item.get('endDay'), 'YYYY-MM-DD').add('days', 1);
@@ -37,6 +42,14 @@ export default Component.extend({
                 });
                 this.set('data', vacationRequests); 
             });
+    },
+    actions: {
+        dateChange(view) {
+            this.setProperties({
+                startDate: view.start.toISOString(true), 
+                endDate: view.end.toISOString(true)
+            });
+            this._loadData();
         },
         clicked(event){
             this.showModal(event);
@@ -44,17 +57,24 @@ export default Component.extend({
         },
         closeModal(){
             this.set('isShowingModal', false);
+            this.set('isShowingForm', false);
+            this._loadData();
         },
         deleteEvent(eventId){
             this.get('store').findRecord('vacation-request', eventId, { backgroundReload: false }).then(event => {
                 let confirmation = confirm('Are you sure?');
                 if (confirmation) {
                     event.destroyRecord().then(() =>{
-                        this.set('data', this.get('store').peekAll('vacation-request'));
+                        this._loadData();
                         this.set('isShowingModal', false);
                     });
                 }
               });
+        },
+        select(start, end){
+            this.set('selectStart', start);
+            this.set('selectEnd', end);
+            this.showModalForm();
         }
     },
  

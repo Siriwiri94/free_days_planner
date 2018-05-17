@@ -11,6 +11,7 @@ export default {
   "title.newUser": "Nuevo usuario",
   "title.editUser":"Editar usuario",
   "reserve.chooseDates": "Elige fechas",
+  "reserve.changeDates": "Cambiar fechas",
   "reserve.type": "Tipo de vaciones",
   "reserve.button": "Reservar",
   "table.startDay": "Día de comienzo",

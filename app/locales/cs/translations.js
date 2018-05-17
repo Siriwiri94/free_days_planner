@@ -11,6 +11,7 @@ export default {
   "title.newUser": "Nový uživatel",
   "title.editUser":"Upravit uživatele",
   "reserve.chooseDates": "Vyberte data",
+  "reserve.changeDates": "Změnit data",
   "reserve.type": "Druh dovolené",
   "reserve.button": "Kniha",
   "table.startDay": "Začátek dne",

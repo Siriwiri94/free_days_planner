@@ -1,0 +1,34 @@
+<div class="container" style="text-align:center; width:100%">
+    <h1 class="text-center title">{{t "title.reserve"}}</h1>
+    <div class="box">
+    <div class="form columns is-centered">
+        
+        <div class="field column is-4 is-centered"> <label for="">{{t "reserve.chooseDates"}}</label>
+            {{date-range-picker
+                start=(readonly startDate)
+                end=(readonly rangeEndAt)
+                applyAction=(action "setDateRange")
+                hideAction=(action "hideDatePicker")
+                cancelAction=(action "cancelDatePicker")  
+            }}
+        </div>
+    </div>
+    <div class="field">
+        <label>{{t "reserve.type"}}</label>
+        <div class="control has-text-centered">
+            <div class="select has-text-centered">
+                <select  id="select" class="is-centered" style="margin:auto" onchange={{action "setSelection" value="target.value"}}>
+                    {{#each data as |type|}}
+                    <option value={{type.id}}>{{type.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </div>
+    {{file-uploader model=image onUpload=(action 'setDocument')}} <!-- onUpload=(action '') -->
+    <div class="control has-text-centered" style="margin-top:10px;">
+        <button class="button is-primary is-rounded is-focused has-text-centered" {{action 'recordHoliday'}} disabled={{isDisabled}}>{{t "reserve.button"}}</button>
+    </div>
+    </div>
+</div>
+{{yield}}

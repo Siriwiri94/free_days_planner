@@ -11,6 +11,7 @@ export default {
   "title.newUser": "New user",
   "title.editUser":"Edit user",
   "reserve.chooseDates": "Choose dates",
+  "reserve.changeDates": "Change dates",
   "reserve.type": "Type of holidays",
   "reserve.button": "Reserve",
   "table.startDay": "Star day",
