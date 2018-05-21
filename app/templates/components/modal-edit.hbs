@@ -2,18 +2,29 @@
     <h1 class="text-center title">{{t "title.reserve"}}</h1>
     <div class="box">
     <div class="form columns is-centered">
-        <div class="field column is-4 is-centered"> <label for="">{{t "reserve.chooseDates"}}</label>
+        <div class="field column is-10 is-centered"> <label for="">{{t "reserve.chooseDates"}}</label>
             {{date-range-picker
                 start=(readonly editRequest.startDay)
                 end=(readonly editRequest.endDay)
-                applyAction=(action "setDateRange")
-                hideAction=(action "hideDatePicker")
-                cancelAction=(action "cancelDatePicker")  
+                applyAction=(action "setDateRange") 
             }}
         </div>
     </div>
+    <div class="field">
+        <label>{{t "reserve.type"}}</label>
+        <div class="control has-text-centered">
+            <div class="select has-text-centered">
+                <select  id="select" class="is-centered" style="margin:auto" onchange={{action "setSelection" value="target.value"}}>
+                    <option value={{editRequest.vacationType.id}}>{{editRequest.vacationType.name}}</option>
+                    {{#each data as |type|}}
+                    <option value={{type.id}}>{{type.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="control has-text-centered" style="margin-top:10px;">
-        <button class="button is-primary is-rounded is-focused has-text-centered" {{action 'recordHoliday'}} disabled={{isDisabled}}>{{t "reserve.button"}}</button>
+        <button class="button is-primary is-rounded is-focused has-text-centered" {{action 'editHoliday'}}>{{t "reserve.button"}}</button>
     </div>
     </div>
 </div>

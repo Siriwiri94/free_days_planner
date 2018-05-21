@@ -39,6 +39,8 @@ export default {
   "usersTable.password":"Contraseña",
   "usersTable.role":"Rol",
   "usersTable.options":"Opciones",
+  "usersTable.remainingDays":"Días restantes",
+  "usersTable.totalDays":"Días totales",
   "linkAddUser": "Añadir nuevo usuario",
   "button.return":"Volver",
   "button.save":"Guardar",

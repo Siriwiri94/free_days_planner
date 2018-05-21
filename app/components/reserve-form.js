@@ -13,6 +13,14 @@ export default Component.extend({
     dataUser:null,
     selectedUser:null,
     today:moment(),
+    totalDays: computed('startDay', 'endDay', function(){
+        var firstDate = new Date(this.get("startDay"));
+        var lastDate = new Date(this.get("endDay"))
+        var start= firstDate.getTime();
+        var end= lastDate.getTime();
+        var diff = end-start;
+        return diff/(1000*60*60*24)+1;
+    }),
     tomorrow: computed('today', function(){
         return moment(this.get('today')).add(1, 'day');
     }),
@@ -26,7 +34,7 @@ export default Component.extend({
                 this.set('dataUser', dataUser);  
             })
         }
-        this.set('userToSave', this.get('currentUser'))
+        this.set('userToSave', this.get('currentUser.user.id'))
     },
     actions:{
         setDateRange(from, to){
@@ -46,16 +54,22 @@ export default Component.extend({
             this.set('userToSave', selected)
         },
         recordHoliday(){
-            var vacationRequest= this.get('store').createRecord('vacation-request', {
-                startDay: new Date(this.get('startDay')),
-                endDay: new Date(this.get('endDay')),
-                accepted: '',
-                vacationType: this.get('store').peekRecord('vacationType', this.get('selectedOption')),
-                user:this.get('store').peekRecord('user', this.get('userToSave')),
-                documents: [this.get('document')],
-            });
-              vacationRequest.save();
-              alert('registered reservation')
+            var user=this.get('store').peekRecord('user', this.get('userToSave'));
+            var difference= user.get('remainingDays') - this.get('totalDays');
+            if(difference <= 0){
+                alert('It is not possible, this user only have '+ user.get('remainingDays')+' days.');
+            }else{
+                var vacationRequest= this.get('store').createRecord('vacation-request', {
+                    startDay: new Date(this.get('startDay')),
+                    endDay: new Date(this.get('endDay')),
+                    accepted: '',
+                    vacationType: this.get('store').peekRecord('vacationType', this.get('selectedOption')),
+                    user:this.get('store').peekRecord('user', this.get('userToSave')),
+                    documents: [this.get('document')],
+                });
+                  vacationRequest.save();
+                  alert('registered reservation')
+            } 
         }, 
         setDocument(document){
             this.set('document', document);

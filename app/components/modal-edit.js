@@ -1,23 +1,38 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import moment from 'moment';
 import { computed } from '@ember/object';
-
 export default Component.extend({
     data:null,
     store: service(),
     currentUser: service(),
     editRequest:null,
-    rangeEndAt: computed('endDate', function(){
-        return moment(this.get('endDate')).subtract(1, 'day');
+    startDate:null,
+    endDate: null,
+    selectedType:null,
+    selectedOption:null,
+    savedRange:null,
+    totalDays: computed('startDate', 'endDate', function(){
+        var firstDate = new Date(this.get("startDate"));
+        var lastDate = new Date(this.get("endDate"));
+        var start= firstDate.getTime();
+        var end= lastDate.getTime();
+        var diff = end-start;
+        return diff/(1000*60*60*24)+1;
     }),
     didInsertElement(){
-        this.set('editRequest', this.get('store').findRecord('vacation-request', this.get('editId')))
+        this.set('editRequest', this.get('store').findRecord('vacation-request', this.get('editId'), {include: 'vacationType'}, {include: 'user'}));
+        this.get('store').findAll('vacation-type').then(data => {
+            this.set('data', data);
+           
+        });
     },
     actions:{
+        setSelection: function(selected) {
+            this.set('selectedOption', selected)
+        }, 
         setDateRange(from, to){
             this.set('startDate', from);
-            this.set('rangeEndAt', to);
+            this.set('endDate', to);
         },
         hideDatePicker(){
 
@@ -26,14 +41,29 @@ export default Component.extend({
 
         },
         editHoliday(){
-            var vacationRequest= this.get('store').createRecord('vacation-request', {
-                startDay: new Date(this.get('startDate')),
-                endDay: new Date(this.get('rangeEndAt')),
-            });
-              vacationRequest.save().then(() => {
-                  this.sendAction('close');
-              });
-              alert('registered reservation')
+            if(this.get('selectedOption')){
+                this.set('selectedType', this.get('selectedOption'));
+            }else{
+                this.set('selectedType', this.get('editRequest.vacationType.id'));
+            }
+            var user= this.get('editRequest.user');
+            var remaining = user.get('remainingDays')+ this.get('editRequest.businessDays');
+            var difference= remaining - this.get('totalDays');
+            if(difference <= 0){
+                alert('It is not possible, this user only have '+ remaining +' days.');
+            }else{
+                var editStart= new Date (this.get('startDate'));
+                var editEnd= new Date(this.get('endDate'));
+                this.get('store').findRecord('vacation-request', this.get("editRequest.id")).then(record => {
+                    record.set('startDay', editStart);
+                    record.set('endDay', editEnd);
+                    record.set('vacationType', this.get('store').peekRecord('vacationType', this.get('selectedType')));
+                    record.save().then(() => {
+                        this.sendAction('close');
+                    });
+                    alert('reservation edited')
+                });
+            }
         }, 
     },
 });

@@ -23,7 +23,7 @@
         {{moment-format holiday.endDay 'MM-DD-YYYY'}}
       </td>
       <td>
-        {{holiday.totalDays}}
+        {{holiday.businessDays}}
       </td>
       <td>
         {{holiday.vacationType.name}}
@@ -33,7 +33,7 @@
       </td>
       <td>
         <button class=" button" {{action 'showModalForm' holiday}}><i class="fa fa-edit" aria-hidden="true"></i></button>
-        <button class=" button is-danger is-pulled-right" {{action 'deleteHoliday' holiday}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
+        <button class=" button is-danger" {{action 'deleteHoliday' holiday}}><i class="fa fa-window-close" aria-hidden="true"></i></button>
       </td>
     </tr>
   {{/each}}
@@ -41,7 +41,7 @@
 </table> 
 {{#if isShowingForm}}
   {{#modal-dialog targetAttachment="center" translucentOverlay=true onClickOverlay="closeModal"}}
-        {{modal-edit editId=requestId}}
+        {{modal-edit editId=requestId close="closeModal"}}
   {{/modal-dialog}}
 {{/if}}
 {{yield}}

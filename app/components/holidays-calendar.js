@@ -14,6 +14,7 @@ export default Component.extend({
     selectStart:null,
     selectEnd:null,
     isShowingForm: false,
+    holidayIsMine:false,
     showModal: function() {
         this.toggleProperty('isShowingModal');
     },
@@ -53,7 +54,12 @@ export default Component.extend({
         },
         clicked(event){
             this.showModal(event);
-            this.set('event', event);
+            this.set('event', event);         
+            if(event.title == this.get('currentUser.user.username')){
+                this.set('holidayIsMine', true);
+            }else{
+                this.set('holidayIsMine', false);
+            }
         },
         closeModal(){
             this.set('isShowingModal', false);

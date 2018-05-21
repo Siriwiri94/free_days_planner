@@ -38,6 +38,8 @@ export default {
   "usersTable.email":"Email",
   "usersTable.password":"Password",
   "usersTable.role":"Role",
+  "usersTable.remainingDays":"Remaining days",
+  "usersTable.totalDays":"Total days",
   "usersTable.options":"Options",
   "linkAddUser": "Add new user",
   "button.return":"Return",

@@ -11,6 +11,8 @@ export default DS.Model.extend({
     email: DS.attr('string'),
     days_left:DS.attr('number'),
     language:DS.attr('string'),
+    remainingDays:DS.attr('number'),
+    totalDays:DS.attr('number'),
     isAdmin: computed('role', function(){
         return this.get('role') ==='admin';
     }),

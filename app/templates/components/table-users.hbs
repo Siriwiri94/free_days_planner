@@ -7,6 +7,7 @@
     <th>{{t "usersTable.phone"}}</th>
     <th>{{t "usersTable.email"}}</th>
     <th>{{t "usersTable.role"}}</th>
+    <th>{{t "usersTable.remainingDays"}}</th>
     <th>{{t "usersTable.options"}}</th>
   </tr>
   </thead>
@@ -31,6 +32,9 @@
       </td>
       <td>
         {{user.role}}
+      </td>
+      <td>
+        {{user.remainingDays}}
       </td>
       <td>
         {{#link-to 'users.edit' user.id class="button"}}<i class="fa fa-edit" aria-hidden="true"></i>{{/link-to}}

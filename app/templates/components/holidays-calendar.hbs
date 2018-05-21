@@ -16,6 +16,8 @@
         <h3 class="subtitle">{{t "modal.endDay"}} {{moment-format event.end}}</h3>
         {{#if currentUser.user.isAdmin}}
         <button class="button is-danger" {{action 'deleteEvent' event.id}}>{{t "modal.button"}}</button>
+        {{else if holidayIsMine}}
+        <button class="button is-danger" {{action 'deleteEvent' event.id}}>{{t "modal.button"}}</button>
         {{/if}}
   {{/modal-dialog}}
 {{/if}}
