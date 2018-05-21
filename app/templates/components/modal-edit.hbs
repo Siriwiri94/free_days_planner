@@ -15,7 +15,7 @@
         <div class="control has-text-centered">
             <div class="select has-text-centered">
                 <select  id="select" class="is-centered" style="margin:auto" onchange={{action "setSelection" value="target.value"}}>
-                    <option value={{editRequest.vacationType.id}}>{{editRequest.vacationType.name}}</option>
+                    <option value="wasSelected">{{editRequest.vacationType.name}}</option>
                     {{#each data as |type|}}
                     <option value={{type.id}}>{{type.name}}</option>
                     {{/each}}

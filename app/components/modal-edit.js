@@ -11,9 +11,9 @@ export default Component.extend({
     selectedType:null,
     selectedOption:null,
     savedRange:null,
-    totalDays: computed('startDate', 'endDate', function(){
-        var firstDate = new Date(this.get("startDate"));
-        var lastDate = new Date(this.get("endDate"));
+    totalDays: computed('editRequest.startDay', 'editRequest.endDay', function(){
+        var firstDate = new Date(this.get('editRequest.startDay'));
+        var lastDate = new Date(this.get('editRequest.endDay'));
         var start= firstDate.getTime();
         var end= lastDate.getTime();
         var diff = end-start;
@@ -28,11 +28,15 @@ export default Component.extend({
     },
     actions:{
         setSelection: function(selected) {
-            this.set('selectedOption', selected)
+            if(selected=="wasSelected"){
+                this.get('selectedOption', this.get('editRequest.vacationType.id'));
+            }else{
+                this.set('selectedOption', selected)
+            } 
         }, 
         setDateRange(from, to){
-            this.set('startDate', from);
-            this.set('endDate', to);
+            this.set('editRequest.startDay', from);
+            this.set('editRequest.endDay', to);
         },
         hideDatePicker(){
 
@@ -52,8 +56,8 @@ export default Component.extend({
             if(difference <= 0){
                 alert('It is not possible, this user only have '+ remaining +' days.');
             }else{
-                var editStart= new Date (this.get('startDate'));
-                var editEnd= new Date(this.get('endDate'));
+                var editStart= new Date (this.get('editRequest.startDay'));
+                var editEnd= new Date(this.get('editRequest.endDay'));
                 this.get('store').findRecord('vacation-request', this.get("editRequest.id")).then(record => {
                     record.set('startDay', editStart);
                     record.set('endDay', editEnd);
