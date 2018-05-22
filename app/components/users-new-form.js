@@ -34,7 +34,6 @@ export default Component.extend({
                 role:this.get('role'),
               });
               newUser.save().then(() => {
-                alert('A new user has been registered')
                 this.setProperties({username: '', name: '', surname: '', phone: '', email: '', password:'', role:''});
                 this.get('router').transitionTo('admin_users');
               });

@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import moment from 'moment';
 import { computed } from '@ember/object';
-
+import ember from 'ember';
 export default Component.extend({
     userToSave:null,
     data:null,
@@ -14,6 +14,7 @@ export default Component.extend({
     dataUser:null,
     selectedUser:null,
     isDisabled:true,
+    showMessage: false,
     rangeEndAt: computed('endDate', function(){
         return moment(this.get('endDate')).subtract(1, 'day');
     }),
@@ -40,7 +41,7 @@ export default Component.extend({
     actions:{
         setDateRange(from, to){
             this.set('startDate', from);
-            this.set('rangeEndAt', to);
+            this.set('endDate', to);
         },
         hideDatePicker(){
 
@@ -58,8 +59,10 @@ export default Component.extend({
             var user=this.get('store').peekRecord('user', this.get('userToSave'));
             var difference= user.get('remainingDays') - this.get('totalDays');
             if(difference <= 0){
-                alert('It is not possible, this user only have '+ user.get('remainingDays')+' days.');
-                
+                this.set('showMessage', true);
+                ember.run.later((()=> {
+                    this.set('showMessage', false);
+                }), 2000);
             }else{
                 var vacationRequest= this.get('store').createRecord('vacation-request', {
                     startDay: new Date(this.get('startDate')),
@@ -72,7 +75,6 @@ export default Component.extend({
                 vacationRequest.save().then(() => {
                     this.sendAction('close');
                 });
-                alert('registered reservation')
             }
         }, 
         setDocument(document){
