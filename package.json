@@ -3,23 +3,31 @@
   "version": "0.0.0",
   "private": true,
   "description": "Small description for free-days-planner goes here",
+  "repository": "",
   "license": "MIT",
   "author": "",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "ember serve",
     "test": "ember test"
   },
+  "dependencies": {
+    "ember-file-upload": "^2.4.2",
+    "flag-icon-css": "^3.0.0",
+    "fullcalendar": "^3.9.0",
+    "uppy": "^0.24.2",
+    "vue-bulma-tabs": "^1.1.2"
+  },
   "devDependencies": {
     "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.4.5",
     "bulma": "^0.5.3",
+    "corber": "1.2.7",
     "ember-ajax": "^3.0.0",
     "ember-basic-dropdown": "^1.0.0-beta.6",
     "ember-bulma": "^0.4.1",
@@ -64,12 +72,5 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
-  },
-  "dependencies": {
-    "ember-file-upload": "^2.4.2",
-    "flag-icon-css": "^3.0.0",
-    "fullcalendar": "^3.9.0",
-    "uppy": "^0.24.2",
-    "vue-bulma-tabs": "^1.1.2"
   }
 }

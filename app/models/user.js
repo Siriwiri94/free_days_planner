@@ -6,6 +6,7 @@ export default DS.Model.extend({
     password: DS.attr('string'),
     role: DS.attr('string'),
     token: DS.attr('string'),
+    pushToken: DS.attr('string'),
     surname: DS.attr('string'),
     phone: DS.attr('string'),
     email: DS.attr('string'),

@@ -14,6 +14,7 @@ export default Route.extend(ApplicationRouteMixin, {
         }else{
             this.transitionTo('login');
         }
+        document.addEventListener("deviceready", () => {this._registerPush()}, false);
     },
     sessionAuthenticated() {
         this._super(...arguments);
@@ -28,6 +29,11 @@ export default Route.extend(ApplicationRouteMixin, {
     _loadCurrentUser() {
         return this.get('currentUser').load().then(user => {
             const language = user.get('language');
+            const pushToken = this.get('pushToken')
+            if (pushToken) {
+                user.set('pushToken', pushToken);
+                user.save();
+            }
             if (language){
                 this.set('i18n.locale', language);
                 this.get('moment').setLocale(language);
@@ -38,6 +44,34 @@ export default Route.extend(ApplicationRouteMixin, {
                 this.transitionTo('pending_requests')
             }
         }, ()=> this.get('session').invalidate());
+    },
+    _registerPush(){
+        const push = PushNotification.init({
+            android: {
+            },
+            browser: {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            },
+            windows: {}
+        });
+        
+        push.on('registration', (data) => {
+            console.log("Registration",data);
+            this.set('pushToken', data.registrationId);
+        });
+        
+        push.on('notification', (data) => {
+            console.log("Notification", data);
+        });
+        
+        push.on('error', (e) => {
+            console.error(e);
+        });
     },
     actions:{
         changeLanguage(language){

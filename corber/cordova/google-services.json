@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "766097036974",
+    "firebase_url": "https://freedays-730aa.firebaseio.com",
+    "project_id": "freedays-730aa",
+    "storage_bucket": "freedays-730aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766097036974:android:071c11ce0c36ceb0",
+        "android_client_info": {
+          "package_name": "io.corber.freeDaysPlanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766097036974-20d0piov1sdk760k2n9uifmdo4av7l2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSNeDbHryhfq7fP8IQHD_XzaaJstTmb7U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
