@@ -13,7 +13,7 @@ export default Component.extend({
     selectedOption: 1,
     dataUser:null,
     selectedUser:null,
-    isDisabled:true,
+    isDisabled:false,
     showMessage: false,
     rangeEndAt: computed('endDate', function(){
         return moment(this.get('endDate')).subtract(1, 'day');
