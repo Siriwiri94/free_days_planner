@@ -68,7 +68,15 @@ export default Route.extend(ApplicationRouteMixin, {
         push.on('notification', (data) => {
             console.log("Notification", data);
         });
-        
+
+        push.on('acceptRequest', (data) => {
+            console.log("acceptRequest", data);
+        });
+
+        push.on('denyRequest', (data) => {
+            console.log("denyRequest", data);
+        });
+
         push.on('error', (e) => {
             console.error(e);
         });
