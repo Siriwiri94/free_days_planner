@@ -45,3 +45,8 @@
     </div>
 </div>
 {{yield}}
+{{#if showMessage}}
+    {{#modal-dialog attachment='top center' targetAttachment='bottom center' onClickOverlay="closeModal"}}
+    <div class="is-success" style="color:white">User does not have enough available days</div>
+    {{/modal-dialog}}
+{{/if}}

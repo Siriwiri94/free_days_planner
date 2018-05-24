@@ -7,7 +7,6 @@ export default Component.extend({
         recordUser(){
             var newUser= this.get('model');
               newUser.save().then(() => {
-                alert('the user has been updated')
                 this.get('router').transitionTo('admin_users');
               });
             },

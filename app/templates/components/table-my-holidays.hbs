@@ -33,3 +33,8 @@
   </tbody>
 </table> 
 {{yield}}
+{{#if showMessage}}
+        {{#modal-dialog attachment='top center' targetAttachment='bottom center' onClickOverlay="closeModal"}}
+        <div class="is-success" style="color:white">You have deleted a request</div>
+        {{/modal-dialog}}
+{{/if}}

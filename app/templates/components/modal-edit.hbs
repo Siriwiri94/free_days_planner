@@ -29,3 +29,8 @@
     </div>
 </div>
 {{yield}}
+{{#if showMessage}}
+        {{#modal-dialog attachment='top center' targetAttachment='bottom center' onClickOverlay="closeModal"}}
+        <div class="is-success" style="color:white">It is not possible, this user only have {{remainingPrint}} days.</div>
+        {{/modal-dialog}}
+{{/if}} 

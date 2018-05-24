@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import moment from 'moment';
 import { computed } from '@ember/object';
+import ember from 'ember';
 export default Component.extend({
     userToSave:null,
     data:null,
@@ -12,6 +13,8 @@ export default Component.extend({
     selectedOption: 1,
     dataUser:null,
     selectedUser:null,
+    showMessage2:false,
+    showMessage: false,
     today:moment(),
     totalDays: computed('startDay', 'endDay', function(){
         var firstDate = new Date(this.get("startDay"));
@@ -57,7 +60,10 @@ export default Component.extend({
             var user=this.get('store').peekRecord('user', this.get('userToSave'));
             var difference= user.get('remainingDays') - this.get('totalDays');
             if(difference <= 0){
-                alert('It is not possible, this user only have '+ user.get('remainingDays')+' days.');
+                this.set('showMessage2', true);
+                ember.run.later((()=> {
+                    this.set('showMessage2', false);
+                }), 2000);
             }else{
                 var vacationRequest= this.get('store').createRecord('vacation-request', {
                     startDay: new Date(this.get('startDay')),
@@ -67,8 +73,12 @@ export default Component.extend({
                     user:this.get('store').peekRecord('user', this.get('userToSave')),
                     documents: [this.get('document')],
                 });
-                  vacationRequest.save();
-                  alert('registered reservation')
+                vacationRequest.save().then(()=>{
+                    this.set('showMessage', true);
+                    ember.run.later((()=> {
+                    this.set('showMessage', false);
+                }), 1500);
+                }); 
             } 
         }, 
         setDocument(document){

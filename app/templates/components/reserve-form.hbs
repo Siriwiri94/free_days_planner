@@ -42,6 +42,17 @@
     <div class="control has-text-centered" style="margin-top:10px;">
         <button class="button is-primary is-rounded is-focused has-text-centered" {{action 'recordHoliday'}} disabled={{isDisabled}}>{{t "reserve.button"}}</button>
     </div>
+
     </div>
 </div>
 {{yield}}
+{{#if showMessage}}
+    {{#modal-dialog attachment='top center' targetAttachment='bottom center' onClickOverlay="closeModal"}}
+    <div class="is-success" style="color:white">You have made a request</div>
+    {{/modal-dialog}}
+{{/if}}
+{{#if showMessage2}}
+    {{#modal-dialog attachment='top center' targetAttachment='bottom center' onClickOverlay="closeModal"}}
+    <div class="is-success" style="color:white">User does not have enough available days</div>
+    {{/modal-dialog}}
+{{/if}}

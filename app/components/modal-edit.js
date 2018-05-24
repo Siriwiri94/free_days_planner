@@ -1,7 +1,10 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import ember from 'ember';
 export default Component.extend({
+    remainingPrint:null,
+    showMessage:false,
     data:null,
     store: service(),
     currentUser: service(),
@@ -51,10 +54,14 @@ export default Component.extend({
                 this.set('selectedType', this.get('editRequest.vacationType.id'));
             }
             var user= this.get('editRequest.user');
-            var remaining = user.get('remainingDays')+ this.get('editRequest.businessDays');
+            var remaining = user.get('remainingDays') + this.get('editRequest.businessDays');
+            this.set('remainingPrint', remaining);
             var difference= remaining - this.get('totalDays');
             if(difference <= 0){
-                alert('It is not possible, this user only have '+ remaining +' days.');
+                this.set('showMessage', true);
+                ember.run.later((()=> {
+                    this.set('showMessage', false);
+                }), 2000);
             }else{
                 var editStart= new Date (this.get('editRequest.startDay'));
                 var editEnd= new Date(this.get('editRequest.endDay'));
@@ -65,7 +72,6 @@ export default Component.extend({
                     record.save().then(() => {
                         this.sendAction('close');
                     });
-                    alert('reservation edited')
                 });
             }
         }, 
