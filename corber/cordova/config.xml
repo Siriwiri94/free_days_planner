@@ -24,5 +24,8 @@
         <allow-intent href="itms-apps:*" />
         <resource-file src="GoogleService-Info.plist" />
     </platform>
-    <engine name="android" spec="~7.0.0" />
+    <allow-navigation href="http://192.168.88.40:4200" name="ec-nav" />
+    <allow-navigation href="http://192.168.88.40:4200" name="ec-nav" />
+    <allow-navigation href="http://192.168.88.40:4200" name="ec-nav" />
+    <engine name="android" spec="latest" />
 </widget>
