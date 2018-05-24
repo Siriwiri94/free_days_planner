@@ -27,7 +27,7 @@ export default Component.extend({
     tomorrow: computed('today', function(){
         return moment(this.get('today')).add(1, 'day');
     }),
-    isDisabled:true,
+    isDisabled:false,
     didInsertElement(){
         this.get('store').findAll('vacation-type').then(data => {
             this.set('data', data);  

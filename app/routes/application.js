@@ -61,16 +61,13 @@ export default Route.extend(ApplicationRouteMixin, {
         });
         
         push.on('registration', (data) => {
-            console.log("Registration",data);
             this.set('pushToken', data.registrationId);
         });
         
         push.on('notification', (data) => {
-            console.log("Notification", data);
         });
         
         push.on('error', (e) => {
-            console.error(e);
         });
     },
     actions:{

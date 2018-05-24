@@ -1,5 +1,6 @@
 {{yield}}
-<nav class="navbar is-primary">
+<nav class="navbar">
+  <img id="logo" alt="Logo_hand" src="/assets/img/logo-01.png">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
@@ -8,6 +9,7 @@
     </div>
     <div class="collapse navbar-collapse" id="main-navbar">
       <div class="nav" id="edit-navbar">
+        
         {{#if currentUser.user}}
           {{#if currentUser.user.isWorker}}
             {{#link-to 'reserve' tagName="a" class="navbar-item"}}<a href="" class="" id="navbar_item">{{t "navbar.reserve"}}</a>{{/link-to}}
@@ -15,7 +17,7 @@
             {{#link-to 'user_page' tagName="a" class="navbar-item"}}<a href="" class="" id="navbar_item">{{t "navbar.myHolidays"}}</a>{{/link-to}}
           {{else}}
             {{#basic-dropdown as |dropdown|}}
-              <div class="navbar-item">{{#dropdown.trigger}} <a href="#" id="navbar_item">{{t "navbar.requests"}}</a>{{/dropdown.trigger}}</div>
+              <div class="navbar-item" >{{#dropdown.trigger}} <a href="#" id="navbar_item" style="padding-top:65%; margin-right:30px;">{{t "navbar.requests"}}</a>{{/dropdown.trigger}}</div>
               {{#dropdown.content}} {{#link-to 'all_requests' tagName="a" class="navbar-item"}}<a href="">{{t "navbar.all"}}</a>{{/link-to}}{{#link-to 'pending_requests' tagName="a" class="navbar-item"}}<a href="">{{t "navbar.pending"}}</a>{{/link-to}} {{/dropdown.content}}
             {{/basic-dropdown}}
             {{#if currentUser.user.isAdmin}}
