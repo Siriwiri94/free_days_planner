@@ -32,6 +32,7 @@ export default Component.extend({
                 password: this.get('password'),
                 language: this.get('language'),
                 role:this.get('role'),
+                totalDays:30
               });
               newUser.save().then(() => {
                 this.setProperties({username: '', name: '', surname: '', phone: '', email: '', password:'', role:''});
